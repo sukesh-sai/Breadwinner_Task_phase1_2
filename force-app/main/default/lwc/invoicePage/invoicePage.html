@@ -1,0 +1,78 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-22-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-box slds-theme_default">
+    <template lwc:if={hideTable}>
+    <lightning-card title="Invoice Details" icon-name="custom:custom63">  
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Example table of Opportunities with vertical borders">
+<tbody>
+    <tr class="slds-hint-parent">
+        <td>Origin Record ID</td>
+        <td data-label="Account Name">
+        <div class="slds-truncate" title="Cloudhub"> {originRecordId}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Account Name</td>
+        <td data-label="Close Date">
+        <div class="slds-truncate" title="4/14/2015">{account}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Invoice Date</td>
+        <td data-label="Prospecting">
+        <div class="slds-truncate" title="Prospecting">{invoiceDate}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Invoice Due Date</td>
+        <td data-label="Confidence">
+        <div class="slds-truncate" title="20%">{invoiceDueDate}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Child Relationship Name</td>
+        <td data-label="Amount">
+        <div class="slds-truncate" title="$25k">{childRelationshipName}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Line Item Description</td>
+        <td data-label="Amount">
+            <div class="slds-truncate" title="$25k">{lineItemDescription}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Line Item Quantity</td>
+        <td data-label="Contact">
+            <div class="slds-truncate" title="$25k">{lineItemQuantity}</div>
+        </td>
+    </tr>
+    <tr>
+        <td>Line Item Unit Price</td>
+        <td data-label="Contact">
+            <div class="slds-truncate" title="$25k">{lineItemQuantity}</div>
+        </td>
+        </tr>
+</tbody>
+</table><br/>
+<div>
+    <lightning-button label="View JSON" name="View JSON" onclick={showFormat}></lightning-button>
+</div>
+</lightning-card>
+
+    </template>
+   
+<template lwc:if={displayFormat}>
+     
+    <lightning-textarea variant="label-hidden" value={jsonFormat} read-only></lightning-textarea>
+    <lightning-button label="Proceed to create Invoice" name="Send to Xero" onclick={callXero}></lightning-button>
+     
+</template>
+</div>
+</template>
